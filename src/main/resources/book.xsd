@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.polstat.com/soap/gen"
+           xmlns:tns="http://www.polstat.com/soap/gen"
+           elementFormDefault="qualified">
+
+    <!-- BookDto complex type -->
+    <xs:complexType name="BookDto">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="author" type="xs:string"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- CreateBookRequest element -->
+    <xs:element name="CreateBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="xs:string"/>
+                <xs:element name="author" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- CreateBookResponse element -->
+    <xs:element name="CreateBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- GetBooksRequest element -->
+    <xs:element name="GetBooksRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- GetBooksResponse element -->
+    <xs:element name="GetBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="BookDto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- SearchBooksRequest element -->
+    <xs:element name="SearchBooksRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="keyword" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- SearchBooksResponse element -->
+    <xs:element name="SearchBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="BookDto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
